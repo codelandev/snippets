@@ -44,3 +44,43 @@ Like in the pure back-end Snippets, you can also up a README with your informati
 ### How can I contribute?
 
 We will explain this another time, hahaha. That's all folks!
+
+## TO-DOs
+
+Here is some ideas to what include in Snippets repository:
+
+### Ruby
+```
+- Fetch Instagram Photos
+- Fetch Facebook Posts
+- Fetch Twitter Tweets
+- Fetch Vine Posts
+- Facebook OAuth
+- Linkedin OAuth
+- Twitter OAuth
+- GitHub OAuth
+- Facebook profile importer
+- Linkedin profile importer
+- Twitter Live Stream (for Tweets)
+- Notifications
+- States with state-machine
+```
+
+### Ruby on Rails
+```
+- Wistia API
+- Devise with login through AJAX
+- PubNub real-time chat
+```
+
+### Twitter Bootstrap
+```
+- Responsive layout with bootstrap 3
+```
+
+### Javascript
+```
+- Weemo client connection
+- Google Maps API
+- Last active tab bootstrap 3 with local storage
+```
