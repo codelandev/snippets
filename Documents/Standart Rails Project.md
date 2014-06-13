@@ -1,13 +1,16 @@
 # Default Rails Project (without API)
 
+## DOs and DON'Ts
+
 ### What this guide do?
 This guide help to configure the default rails project with tests, devise, active admin and some more things.
 
 ### What this guide don't?
 This guide don't help to configure any CSS framework like Bootstrap or Foundation. You need to choose a framework before start, because simple_form gem have the appropriated generators for both frameworks.
 
+## Starting
 
-## Gemfile
+### Gemfile
 
 ```
 source 'https://rubygems.org'
@@ -71,13 +74,82 @@ end
 
 ```
 
-## Run the basic installers
+### Run the basic installers
 
 ```
 bundle && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install
 ```
 
-## application.rb
+### database.yml
+
+#### For Mac OS X
+
+```yml
+development:
+  adapter: postgresql
+  database: [project-name]_development
+  host: localhost
+  poor: 5
+
+test:
+  adapter: postgresql
+  database: [project-name]_test
+  host: localhost
+  poor: 5
+
+production:
+  adapter: postgresql
+  database: [project-name]_production
+  host: localhost
+  poor: 5
+
+```
+
+#### For Linux
+
+```yml
+development:
+  adapter: postgresql
+  database: [project-name]_development
+  username: [username]
+  password: [password]
+  host: localhost
+  poor: 5
+
+test:
+  adapter: postgresql
+  database: [project-name]_test
+  username: [username]
+  password: [password]
+  host: localhost
+  poor: 5
+
+production:
+  adapter: postgresql
+  database: [project-name]_production
+  host: localhost
+  poor: 5
+
+```
+
+### Devise I18n
+
+Copy the content on the following link and put on a new file called ```devise.pt-BR.yml``` inside
+the ```config/locales``` folder.
+
+[link to file on GitHub](https://raw.githubusercontent.com/tigrish/devise-i18n/master/locales/pt-BR.yml)
+
+
+### application.css
+Add to your ```application.css``` the following lines:
+
+
+```
+#= require nprogress
+#= require nprogress-turbolinks
+```
+
+### application.rb
 
 Your ```config/application.rb``` file must be looks like this:
 
@@ -110,23 +182,53 @@ Your ```config/application.rb``` file must be looks like this:
   end
 ```
 
-## rails_helper.rb
-Inside your ```rails_helper.rb``` file you need to add the ```simplecov``` caller and the Capybara require above ```require 'rspec/rails'```.
+### spec_helper.rb
+Inside your ```spec_helper.rb``` file you need to add the ```simplecov``` caller and the Capybara require above ```require 'rspec/rails'```.
 
 ```
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/app/admin'
 end
+
 ...
+
 require 'capybara/rspec'
+require 'shoulda/matchers'
+
 ...
+
+config.before(:suite) do
+  DatabaseCleaner.strategy = :transaction
+  DatabaseCleaner.clean_with(:truncation)
+end
+
+config.before(:each) do
+  DatabaseCleaner.start
+end
+
+config.after(:each) do
+  DatabaseCleaner.clean
+end
 ```
 
-About the ```RSpec.configure do |config|``` line you need to tell Capybara to use ```capybara-webkit```gem.
+About the ```RSpec.configure do |config|``` line you need to tell Capybara to use ```capybara-webkit```
+gem. So, copy and paste this line above the indicated line:
 
 ```
 Capybara.javascript_driver = :webkit
 ```
 
-# Done!
+### Run the migrations
+
+```
+rake db:create db:migrate db:seed && rake db:migrate RAILS_ENV=test
+```
+
+### Start server
+
+```
+bundle exec thin start
+```
+
+### Done!
