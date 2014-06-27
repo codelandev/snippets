@@ -14,3 +14,6 @@ Produto | Product | ---
 Projeto | Project | ---
 Carrinho de compras | ShoppingCart |---
 Usuário Simples | User | ---
+Categoria | Category | ---
+
+
