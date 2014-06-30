@@ -1,7 +1,6 @@
 #CSS Guidelines when you start a project
 ## Filetype
-All projects MUST use ```filename.sass``` files as standard
-
+All projects MUST use ```filename.sass``` files as standard.
 
 ## Folder Structure:
 ```
@@ -19,8 +18,8 @@ assets/
     application.css.sass
 ```
 
-## About application.css.sass
-These file will contain only the imports of the project, see the example below:
+### About application.css.sass
+These file will contain only the sass imports, see the example below:
 ```
 @import standards/colors
 @import standards/fonts
@@ -28,8 +27,8 @@ These file will contain only the imports of the project, see the example below:
 @import layouts/footer
 ```
 
-## About fonts.sass
-### Importing a font-family from Google Fonts
+### About fonts.sass
+#### Importing a font-family from Google Fonts
 The name of the mixin must be related to font family name and weight. It must be all lowercase:
 ```
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300)
@@ -41,7 +40,6 @@ The name of the mixin must be related to font family name and weight. It must be
 @mixin raleway_300
   font-family: 'Raleway', Helvetica, Arial, Verdana, sans-serif
   font-weight: 300
-
 ```
 
 Then you have to call it in a external ```.sass``` file:
@@ -50,7 +48,7 @@ Then you have to call it in a external ```.sass``` file:
   @include ralaway_300
 ```
 
-### Importing a font-family from assets/fonts
+### #Importing a font-family from assets/fonts
 Fontfile should be place inside fonts folder in assets:
 ```
 assets/
@@ -78,13 +76,13 @@ body
   font-family: $museo_sans_100
 ```
 
-## About tags.sass
+### About tags.sass
 It should include all the override and general style like: body, a, div, p, h1, h2, h3, etc. If you are going to create a particular style for, lets say, forms, you should create a ```forms.sass``` file instead.
 
-## About mixins.sass
+### About mixins.sass
 These are the basics mixins used in a project:
 
-### border-radius
+#### border-radius
 ```
 @mixin border-radius($radius)
   -webkit-border-radius: $radius
@@ -92,13 +90,14 @@ These are the basics mixins used in a project:
   -ms-border-radius: $radius
   border-radius: $radius
 ```
+
 The usage
 ```
 .classname
   @include border-radius(3px)
 ```
 
-### transition
+#### transition
 ```
 @mixin transition($transition-property, $transition-time, $method)
   -webkit-transition: $transition-property $transition-time $method
@@ -107,6 +106,7 @@ The usage
   -o-transition: $transition-property $transition-time $method
   transition: $transition-property $transition-time $method
 ```
+
 The usage
 ```
 .classname
