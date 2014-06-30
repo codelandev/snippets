@@ -9,6 +9,7 @@ Nome semântico | Nome para model | Obeservação
 Agenda | Schedule | ---
 Cliente / Comprador | Costumer | ---
 Evento | Event | Util para agendas
+Notícia / Postagem | Post | ---
 Orçamento | Budget | ---
 Produto | Product | ---
 Projeto | Project | ---
