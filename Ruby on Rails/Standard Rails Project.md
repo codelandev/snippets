@@ -10,6 +10,9 @@ This guide don't help to configure any CSS framework like Bootstrap or Foundatio
 
 ## Starting
 
+Generate application
+```rails new -d postgresql
+
 ### Gemfile
 
 ```
@@ -73,7 +76,7 @@ group :production do
 end
 
 ```
-
+Obs: You'll need to download the Qt libraries to build and install the capybara-webkit gem. [This](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit) might help.
 ### Run the basic installers
 
 ```

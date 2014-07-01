@@ -7,14 +7,13 @@
 Nome semântico | Nome para model | Obeservação
 --- | --- | ---
 Agenda | Schedule | ---
+Carrinho de compras | ShoppingCart |---
 Cliente / Comprador | Costumer | ---
+Categoria | Category | ---
 Evento | Event | Util para agendas
 Notícia / Postagem | Post | ---
 Orçamento | Budget | ---
 Produto | Product | ---
 Projeto | Project | ---
-Carrinho de compras | ShoppingCart |---
 Usuário Simples | User | ---
-Categoria | Category | ---
-
-
+Tarefas | Task | ---
