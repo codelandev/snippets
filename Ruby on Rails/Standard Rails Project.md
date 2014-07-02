@@ -42,7 +42,7 @@ gem 'rails-i18n'
 # To able use of slim inside rails application
 gem 'slim-rails', '~> 2.1.4'
 # Meta controllers/routes
-gem 'inherited_resources', '~> 1.5.0'
+gem 'inherited_resources', '~> 1.4.1'
 # For creating elegant backends for website administration
 gem 'activeadmin', github: 'gregbell/active_admin'
 # For authentication
