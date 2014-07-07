@@ -10,10 +10,12 @@ Agenda | Schedule | ---
 Carrinho de compras | ShoppingCart |---
 Cliente / Comprador | Costumer | ---
 Categoria | Category | ---
-Evento | Event | Util para agendas
+Evento | Event | Útil para agendas
 Notícia / Postagem | Post | ---
 Orçamento | Budget | ---
 Produto | Product | ---
 Projeto | Project | ---
 Usuário Simples | User | ---
 Tarefas | Task | ---
+Cliente Matriz | Mother Customer | No caso de haver clientes com *inheritance (mother's children)*
+Cliente Filial | Branch Customer | No caso de haver clientes com *inheritance (children's mother)*
