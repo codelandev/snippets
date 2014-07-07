@@ -18,7 +18,7 @@ assets/
     application.css.sass
 ```
 
-### About application.css.sass
+### About application.sass
 These file will contain only the sass imports, see the example below:
 ```
 @import standards/colors
@@ -48,7 +48,7 @@ Then you have to call it in a external ```.sass``` file:
   @include ralaway_300
 ```
 
-### #Importing a font-family from assets/fonts
+#### Importing a font-family from assets/fonts
 Fontfile should be place inside fonts folder in assets:
 ```
 assets/
