@@ -1,6 +1,6 @@
 #CSS Guidelines when you start a project
 ## Filetype
-All projects MUST use ```filename.sass``` files as standard.
+All projects MUST use `filename.sass` files as standard.
 
 ## Folder Structure:
 ```
@@ -22,7 +22,7 @@ assets/
 
 ### About application.sass
 These file will contain only the sass imports, see the example below:
-```
+```css
 @import standards/colors
 @import standards/fonts
 @import layouts/header
@@ -50,7 +50,7 @@ The name of the mixin must be related to font family name and weight. It must be
   font-weight: 300
 ```
 
-Then you have to call it in a external ```.sass``` file:
+Then you have to call it in a external `.sass` file:
 ```
 .classname
   @include ralaway_300
@@ -67,7 +67,7 @@ assets/
   stylesheets/
 ```
 
-Then you call it inside ```fonts.sass``` and create a variable to use it in external ```.sass``` files:
+Then you call it inside `fonts.sass` and create a variable to use it in external `.sass` files:
 ```
 @font-face
   font-family: 'Museo Sans 100'
@@ -78,14 +78,14 @@ Then you call it inside ```fonts.sass``` and create a variable to use it in exte
 $museo_sans_100: 'Museo Sans 100'
 ```
 
-Once this is created you can call it in a external ```.sass``` file:
+Once this is created you can call it in a external `.sass` file:
 ```
 body
   font-family: $museo_sans_100
 ```
 
 ### About tags.sass
-It should include all the override and general style like: body, a, div, p, h1, h2, h3, etc. If you are going to create a particular style for, lets say, forms, you should create a ```forms.sass``` file instead.
+It should include all the override and general style like: body, a, div, p, h1, h2, h3, etc. If you are going to create a particular style for, lets say, forms, you should create a `forms.sass` file instead.
 
 ### About mixins.sass
 These are the basics mixins used in a project:
