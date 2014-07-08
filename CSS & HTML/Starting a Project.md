@@ -22,7 +22,7 @@ assets/
 
 ### About application.sass
 These file will contain only the sass imports, see the example below:
-```css
+```sass
 @import standards/colors
 @import standards/fonts
 @import layouts/header
@@ -38,7 +38,7 @@ $color_name: #000000
 ### About fonts.sass
 #### Importing a font-family from Google Fonts
 The name of the mixin must be related to font family name and weight. It must be all lowercase:
-```css
+```sass
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300)
 
 @mixin raleway_100
@@ -51,7 +51,7 @@ The name of the mixin must be related to font family name and weight. It must be
 ```
 
 Then you have to call it in a external `.sass` file:
-```css
+```sass
 .classname
   @include ralaway_300
 ```
@@ -68,7 +68,7 @@ assets/
 ```
 
 Then you call it inside `fonts.sass` and create a variable to use it in external `.sass` files:
-```css
+```sass
 @font-face
   font-family: 'Museo Sans 100'
   src: font-url("Museo_Sans_100.ttf") unquote("format('truetype')")
@@ -79,7 +79,7 @@ $museo_sans_100: 'Museo Sans 100'
 ```
 
 Once this is created you can call it in a external `.sass` file:
-```css
+```sass
 body
   font-family: $museo_sans_100
 ```
@@ -91,7 +91,7 @@ It should include all the override and general style like: body, a, div, p, h1, 
 These are the basics mixins used in a project:
 
 #### border-radius
-```css
+```sass
 @mixin border-radius($radius)
   -webkit-border-radius: $radius
   -moz-border-radius: $radius
@@ -100,13 +100,13 @@ These are the basics mixins used in a project:
 ```
 
 The usage
-```css
+```sass
 .classname
   @include border-radius(3px)
 ```
 
 #### transition
-```css
+```sass
 @mixin transition($transition-property, $transition-time, $method)
   -webkit-transition: $transition-property $transition-time $method
   -moz-transition: $transition-property $transition-time $method
@@ -116,7 +116,7 @@ The usage
 ```
 
 The usage
-```css
+```sass
 .classname
     @include transition(all, 0.2s, ease-in-out)
 ```
