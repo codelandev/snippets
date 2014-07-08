@@ -7,6 +7,8 @@ All projects MUST use ```filename.sass``` files as standard.
 assets/
   stylesheets/
     layouts/
+      header.sass
+      footer.sass
     standards/
       classes.sass
       colors.sass
@@ -15,7 +17,7 @@ assets/
       sizes.sass
       tags.sass
     projectname/
-    application.css.sass
+    application.sass
 ```
 
 ### About application.sass
@@ -25,6 +27,12 @@ These file will contain only the sass imports, see the example below:
 @import standards/fonts
 @import layouts/header
 @import layouts/footer
+```
+
+### About colors.sass
+Colors vars of the project
+```
+$color_name: #000000
 ```
 
 ### About fonts.sass
