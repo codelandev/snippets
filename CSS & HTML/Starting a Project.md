@@ -30,16 +30,15 @@ These file will contain only the sass imports, see the example below:
 ```
 
 ### About colors.sass
-Colors vars of the project should follow this standard:
-```sass
-$color-name: #000000
-```
 Then you have to declare the color intensity:
 ```sass
 $intensity-color-name: #000000
 ```
 The intensities are: `light`, `medium` and `dark`. You can also combine it to each other to produce more colors e.g.: `light-medium`, `medium-dark`.
-
+Then you have to declare a variable related to some object to use it in your project.
+```sass
+$my-element: $intensity-color-name
+```
 
 ### About fonts.sass
 #### Importing a font-family from Google Fonts
