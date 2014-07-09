@@ -30,10 +30,16 @@ These file will contain only the sass imports, see the example below:
 ```
 
 ### About colors.sass
-Colors vars of the project
+Colors vars of the project should follow this standard:
 ```sass
-$color_name: #000000
+$color-name: #000000
 ```
+Then you have to declare the color intensity:
+```sass
+$intensity-color-name: #000000
+```
+The intensities are: `light`, `medium` and `dark`. You can also combine it to each other to produce more colors e.g.: `light-medium`, `medium-dark`.
+
 
 ### About fonts.sass
 #### Importing a font-family from Google Fonts
@@ -41,11 +47,11 @@ The name of the mixin must be related to font family name and weight. It must be
 ```sass
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300)
 
-=raleway_100
+=raleway-100
   font-family: 'Raleway', Helvetica, Arial, Verdana, sans-serif
   font-weight: 100
 
-=raleway_300
+=raleway-300
   font-family: 'Raleway', Helvetica, Arial, Verdana, sans-serif
   font-weight: 300
 ```
@@ -53,7 +59,7 @@ The name of the mixin must be related to font family name and weight. It must be
 Then you have to call it in a external `.sass` file:
 ```sass
 .classname
-  +ralaway_300
+  +raleway-300
 ```
 
 #### Importing a font-family from assets/fonts
@@ -75,7 +81,7 @@ Then you call it inside `fonts.sass` and create a variable to use it in external
   font-weight: normal
   font-style: normal
 
-$museo_sans_100: 'Museo Sans 100'
+$museo-sans-100: 'Museo Sans 100'
 ```
 
 Once this is created you can call it in a external `.sass` file:
