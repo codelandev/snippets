@@ -7,8 +7,8 @@ All projects MUST use `filename.sass` files as standard.
 assets/
   stylesheets/
     layouts/
-      header.sass
-      footer.sass
+      _header.sass
+      _footer.sass
     standards/
       classes.sass
       colors.sass
