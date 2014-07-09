@@ -41,11 +41,11 @@ The name of the mixin must be related to font family name and weight. It must be
 ```sass
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,300)
 
-@mixin raleway_100
+=raleway_100
   font-family: 'Raleway', Helvetica, Arial, Verdana, sans-serif
   font-weight: 100
 
-@mixin raleway_300
+=raleway_300
   font-family: 'Raleway', Helvetica, Arial, Verdana, sans-serif
   font-weight: 300
 ```
@@ -53,7 +53,7 @@ The name of the mixin must be related to font family name and weight. It must be
 Then you have to call it in a external `.sass` file:
 ```sass
 .classname
-  @include ralaway_300
+  +ralaway_300
 ```
 
 #### Importing a font-family from assets/fonts
@@ -92,7 +92,7 @@ These are the basics mixins used in a project:
 
 #### border-radius
 ```sass
-@mixin border-radius($radius)
+=border-radius($radius)
   -webkit-border-radius: $radius
   -moz-border-radius: $radius
   -ms-border-radius: $radius
@@ -102,12 +102,12 @@ These are the basics mixins used in a project:
 The usage
 ```sass
 .classname
-  @include border-radius(3px)
+  +border-radius(3px)
 ```
 
 #### transition
 ```sass
-@mixin transition($transition-property, $transition-time, $method)
+=transition($transition-property, $transition-time, $method)
   -webkit-transition: $transition-property $transition-time $method
   -moz-transition: $transition-property $transition-time $method
   -ms-transition: $transition-property $transition-time $method
@@ -118,5 +118,5 @@ The usage
 The usage
 ```sass
 .classname
-    @include transition(all, 0.2s, ease-in-out)
+    +transition(all, 0.2s, ease-in-out)
 ```
