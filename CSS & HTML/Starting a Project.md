@@ -125,3 +125,11 @@ The usage
 .classname
     +transition(all, 0.2s, ease-in-out)
 ```
+
+### About sizes.sass
+These file will contain all the fonts sizes and line-heights. The standards sizes are: `tiny`, `small`, `medium`, `large` and `huge`. You can create extra sizes combining one with each other e.g.: `tiny-small`, `small-medium` and so on. The standard unit mesure is `em`. 
+```sass
+$medium-font-size: 1.2em
+$medium-line-height: 1em
+```
+The medium size are the regular size of the project.
