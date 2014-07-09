@@ -132,4 +132,4 @@ These file will contain all the fonts sizes and line-heights. The standards size
 $medium-font-size: 1.2em
 $medium-line-height: 1em
 ```
-The medium size are the regular size of the project.
+The medium size is the regular size of the project.
