@@ -29,6 +29,20 @@ These file will contain only the sass imports, see the example below:
 @import layouts/footer
 ```
 
+### About classes.sass
+Here you will add classes that can be used in html elements e.g.: 
+```sass
+.menu-item
+  background-color: $background-menu
+  padding: 10px 20px
+
+.transparent
+  background-color: transparent
+
+.content-box
+  padding: 30px
+```
+
 ### About colors.sass
 Then you have to declare the color intensity:
 ```sass
@@ -82,11 +96,14 @@ Then you call it inside `fonts.sass` and create a variable to use it in external
 
 $museo-sans-100: 'Museo Sans 100'
 ```
-
+Then you have to create elements variables:
+```sass
+$base-text: $museo-sans-100
+```
 Once this is created you can call it in a external `.sass` file:
 ```sass
 body
-  font-family: $museo_sans_100
+  font-family: $base-text
 ```
 
 ### About tags.sass
