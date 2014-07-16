@@ -3,16 +3,16 @@
 #####Tabela de consulta para definição e padronização de nomes de atributos de banco de dados.
 *Obs: Manter a lista em ordem alfabética pelo **Nome semântico**.*
 
-Nome semântico | atributo | Tipo
---- | --- | ---
-Autor | author | string
-E-mail | email | string
-Endereço | address | string
-Fim | ends_at | datetime/date
-Nome | name | string
-Gênero | gender | string (limit 1)
-Imagem para perfil | Avatar | attachement
-Inicio | starts_at | datetime/date
-String aleatória | slug | string
-Telefone | phone_number | string
-Título | title | string
+Nome semântico | atributo | Tipo | Observação
+--- | --- | --- | ---
+Autor | author | string |
+E-mail | email | string |
+Endereço | address | string |
+Fim | ends_at | datetime/date |
+Nome | name | string |
+Gênero | gender | string (limit 1) |
+Imagem para perfil | Avatar | attachement |
+Inicio | starts_at | datetime/date |
+Friendly URL | slug | string | Exemplo "herokuapp.com/users/patrick-muller" ao invés de /users/2"
+Telefone | phone_number | string |
+Título | title | string |
