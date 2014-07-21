@@ -18,3 +18,4 @@ Produto | Product | ---
 Projeto | Project | ---
 Usuário Simples | User | ---
 Tarefas | Task | ---
+Fornecedor | Supplier | ---
