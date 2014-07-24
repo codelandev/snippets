@@ -79,6 +79,24 @@ end
 
 ```
 Obs: You'll need to download the Qt libraries to build and install the capybara-webkit gem. [This](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit) might help.
+
+### Configure NProgress-Rails
+Simple as that, just and the following lines on this files:
+
+#### application.js
+
+```
+//= require nprogress
+//= require nprogress-turbolinks
+```
+
+#### application.css
+
+```
+*= require nprogress
+*= require nprogress-turbolinks
+```
+
 ### Run the basic installers
 
 ```
