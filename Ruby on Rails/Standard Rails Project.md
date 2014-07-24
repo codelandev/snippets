@@ -61,11 +61,12 @@ group :development, :test do
   gem 'machinist', '~> 2.0'
   gem 'rspec-rails', '~> 3.0.1'
   gem 'awesome_print', '~> 1.2.0', require: false
+  gem 'spring'
 end
 
 group :test do
   gem 'simplecov', '~> 0.8.2', require: false
-  gem 'database_cleaner', '~> 1.2.0'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'shoulda-matchers', '~> 2.6.1', require: false
   gem 'capybara'
   gem 'capybara-webkit'
@@ -73,6 +74,7 @@ end
 
 group :production do
   gem 'rails_12factor', '~> 0.0.2'
+  gem 'passenger', '~> 4.0'
 end
 
 ```
@@ -185,42 +187,63 @@ Your ```config/application.rb``` file must be looks like this:
   end
 ```
 
-### spec_helper.rb
-Inside your ```spec_helper.rb``` file you need to add the ```simplecov``` caller and the Capybara require above ```require 'rspec/rails'```.
+### rails_helper.rb
+Since we are using RSpec 3 and now you don't have more the classic `spec_helper.rb` and yes the `rails_helper.rb` which contain all the configurations of the RSpec, you file will be something like that:
 
 ```
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] ||= 'test'
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter '/app/admin'
+  add_filter '/app/admin' # just if you are using active_admin
 end
-
-...
-
+require 'spec_helper'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/rails'
 require 'shoulda/matchers'
 
-...
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-config.before(:suite) do
-  DatabaseCleaner.strategy = :transaction
-  DatabaseCleaner.clean_with(:truncation)
-end
-
-config.before(:each) do
-  DatabaseCleaner.start
-end
-
-config.after(:each) do
-  DatabaseCleaner.clean
-end
-```
-
-About the ```RSpec.configure do |config|``` line you need to tell Capybara to use ```capybara-webkit```
-gem. So, copy and paste this line above the indicated line:
-
-```
 Capybara.javascript_driver = :webkit
+
+# Checks for pending migrations before tests are run.
+# If you are not using ActiveRecord, you can remove this line.
+ActiveRecord::Migration.maintain_test_schema!
+
+RSpec.configure do |config|g
+  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.use_transactional_fixtures = false
+  
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.infer_spec_type_from_file_location!
+end
+
 ```
+
+### Configure Passenger to run on production
+To do this, is simple, you just need to create a file called `Procfile` inside the root of your app and put this inside of it:
+
+```
+web: bundle exec passenger start -p $PORT
+```
+
+Doing this, and I'm assuming you are using [Heroku](http://heroku.com) to host your application, he will know you are using Passenger and will initialize this Procfile ( [read more about](https://devcenter.heroku.com/articles/procfile#process-types-as-templates) ).
 
 ### Run the migrations
 
@@ -228,7 +251,8 @@ Capybara.javascript_driver = :webkit
 rake db:create db:migrate db:seed && rake db:migrate RAILS_ENV=test
 ```
 
-### Start server
+### Start server (local only)
+You can change the server you will use, but our Standarts are to use Passenger on production and thin on development, but, be confortable to use what you want :smile:
 
 ```
 bundle exec thin start
