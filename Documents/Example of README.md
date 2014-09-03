@@ -1,4 +1,4 @@
-# Balume Flexitank Global Logistics
+# Name of the Project
 
 * Main branch: master
 * Ruby version: 2.1.2
@@ -7,16 +7,17 @@
 
 ## Installation / Getting Started
 
-To install Balume (for development) on your machine, just follow the tips above:
+To install [Project Name] (for development) on your machine, just follow the tips above:
 
 * **Clone the project**
 
-```git clone git@github.com:codelandev/balume.git```
+```git clone git@github.com:codelandev/[project].git```
 
 * **Configure the remotes**
 
-```git remote add staging git@heroku.com:balume-staging.git```
-```git remote add production git@heroku.com:balume.git```
+```git remote add staging git@heroku.com:[project]-staging.git```
+
+```git remote add production git@heroku.com:[project].git```
 
 * **Install gems**
 
