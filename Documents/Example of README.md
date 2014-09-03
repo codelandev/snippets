@@ -1,53 +1,64 @@
-# Title of the project goes here
+# Balume Flexitank Global Logistics
 
-Between the name of the project and the installation section you can put things like version, coverage,
-informations about branchs...
-
-## Explaining title goes here
-
-Here goes a little explaination about the project
-
-### If you need sections you put more sub-titles
-
-And here goes more and more explaination
-
-### Like this
-
-And this...
+* Main branch: master
+* Ruby version: 2.1.2
+* Rails version: 4.1.5
+* PG version: 0.17.1
 
 ## Installation / Getting Started
 
-Here you can put the path necessary to install the project on your machine. For example you can describe
-something like that:
+To install Balume (for development) on your machine, just follow the tips above:
 
-1. Do this
-```rails g new app -d postgresql```
+* **Clone the project**
 
-2. And now do this
-```bundle install```
+```git clone git@github.com:codelandev/balume.git```
 
-3. Now you need to configure this
-```export ENV_KEY=enviroment```
+* **Configure the remotes**
 
-4. Run the specs
-```rspec .```
+```git remote add staging git@heroku.com:balume-staging.git```
+```git remote add production git@heroku.com:balume.git```
 
-5. Run the server
-```rails s```
+* **Install gems**
 
-## Notes
+ ```bundle install```
 
-So, here you can put any extra information about the project, like tips or TO-DOs
+* **Create DB and run migrations**
 
-## Credits
+```bundle exec rake db:create db:migrate && bundle exec rake db:seed```
 
-Specify the people you want to thanks to, adding name and github/bitbucket profile link.
+*For some reason if you run `seeds` together with migrate it's cause some errors.*
 
-## Contributing
+## Running Specs
 
-Specify how to contribute to project with detailed informations.
+We are using Capybara + RSpec for the tests, so, in order to run the specs maybe you will need somethings to keep `selenium-webdriver` running.
 
-## License
+* **Install [Firefox](https://download.mozilla.org/?product=firefox-32.0-SSL&os=osx&lang=pt-BR) on your machine**
 
-Like this...
-Copyright (c) 2012 - 2014 [NAME HERE]. Licensed as free and open source under the MIT License
+* **Create Test DB and run migrations**
+
+```bundle exec rake db:create db:migrate RAILS_ENV=test```
+
+* **Run Specs**
+
+```bundle exec rspec .```
+
+## Creating feature branches
+
+In all projects we work with `feature branches`. It's a good way to controll who are doing what and to improve quality of code, once you need to up a PR with that branch after.
+
+### Create the branch
+
+The nomenclature of the feature branch is composite by `{name initials}-{feature name || description}`, and probably will be something like that: `pm-review-typo` or `pm-create-users`.
+
+Also, always keep you branch up-to-date with master, and keep master updated too. To do this, always run `git checkout master && git pull origin master`
+
+Now, to create the feature branch just run `git checkout master && git checkout -b
+[name-of-branch]`.
+
+## Openning a Pull Request
+
+After you finish the implementations what you did on your branch, you can up this to Github and open a Pull Request. This way other persons of the project can available your things and propose improvements. Just create the PR when you have confidence you create everything you need to, like views, controllers, specs... 
+
+## Finishing/Delivering/Accepting Pivotal
+
+For now we are working with Pivotal to organize the features and sprints of the project, so, just delivery a task when you finish this and up the PR. Let to the Project Manager to accept or reject your feature.
