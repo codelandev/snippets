@@ -59,7 +59,7 @@ end
 group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'machinist', '~> 2.0'
-  gem 'rspec-rails', '~> 3.0.1'
+  gem 'rspec-rails', '~> 3.1.0'
   gem 'awesome_print', '~> 1.2.0', require: false
   gem 'spring'
 end
@@ -69,7 +69,7 @@ group :test do
   gem 'database_cleaner', '~> 1.3.0'
   gem 'shoulda-matchers', '~> 2.6.1', require: false
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
 end
 
 group :production do
@@ -78,7 +78,6 @@ group :production do
 end
 
 ```
-Obs: You'll need to download the Qt libraries to build and install the capybara-webkit gem. [This](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit) might help.
 
 ### Configure NProgress-Rails
 Simple as that, just and the following lines on this files:
@@ -103,7 +102,7 @@ Simple as that, just and the following lines on this files:
 bundle && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
 ```
 
-Also check if `[initJS](https://github.com/josemarluedke/initjs)` has injected requires on your application.js
+Also check if ```[initJS](https://github.com/josemarluedke/initjs)``` has injected requires on your application.js
 
 ### application.html.slim
 
@@ -221,15 +220,18 @@ Your ```config/application.rb``` file must be looks like this:
 ```
 
 ### rails_helper.rb
-Since we are using RSpec 3 and now you don't have more the classic `spec_helper.rb` and yes the `rails_helper.rb` which contain all the configurations of the RSpec, you file will be something like that:
+Since we are using RSpec 3.x and now you don't have more the classic `spec_helper.rb` and yes the `rails_helper.rb` which contain all the configurations of the RSpec, you file will be something like that:
 
 ```
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+
 require 'simplecov'
+
 SimpleCov.start 'rails' do
   add_filter '/app/admin' # just if you are using active_admin
 end
+
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -239,7 +241,9 @@ require 'shoulda/matchers'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :selenium
+Capybara.server_port = 52662
+Capybara.exact = true
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
@@ -281,7 +285,7 @@ Doing this, and I'm assuming you are using [Heroku](http://heroku.com) to host y
 ### Run the migrations
 
 ```
-rake db:create db:migrate db:seed && rake db:migrate RAILS_ENV=test
+bin/rake db:create db:migrate && bin/rake db:seed && bin/rake db:migrate RAILS_ENV=test
 ```
 
 ### Start server (local only)
