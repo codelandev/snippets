@@ -68,9 +68,6 @@ class Quote < ActiveRecord::Base
     errors.add(:destination_port, I18n.t('quotes.errors.destination_port_must_be_different_from_origin'))
   end
 end
-
-
-
 ```
 
 Did you see the file above? This is a example of how a model class should be organizated. But to understand this organization, let's go to a deconstruction of this file.
