@@ -96,37 +96,6 @@ Simple as that, just and the following lines on this files:
 *= require nprogress-turbolinks
 ```
 
-### Run the basic installers
-
-```
-bundle && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
-```
-
-Also check if ```[initJS](https://github.com/josemarluedke/initjs)``` has injected requires on your application.js
-
-### application.html.slim
-
-```
-doctype html
-html
-  head
-    meta[charset="utf-8"]
-    meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-    /[if lt IE 9]
-      meta[content="text/html; charset=utf-8" http-equiv="Content-Type"]
-      = javascript_include_tag "//html5shiv.googlecode.com/svn/trunk/html5.js"
-    title Balume
-    = favicon_link_tag 'favicon.png'
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = initjs_tag 'AppName'
-    = csrf_meta_tags
-
-body
-  = yield
-
-```
-
 ### database.yml
 
 #### For Mac OS X
@@ -176,6 +145,37 @@ production:
   database: [project-name]_production
   host: localhost
   poor: 5
+
+```
+
+### Run the basic installers
+
+```
+bundle && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
+```
+
+Also check if ```[initJS](https://github.com/josemarluedke/initjs)``` has injected requires on your application.js
+
+### application.html.slim
+
+```
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    /[if lt IE 9]
+      meta[content="text/html; charset=utf-8" http-equiv="Content-Type"]
+      = javascript_include_tag "//html5shiv.googlecode.com/svn/trunk/html5.js"
+    title Balume
+    = favicon_link_tag 'favicon.png'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = initjs_tag 'AppName'
+    = csrf_meta_tags
+
+body
+  = yield
 
 ```
 
