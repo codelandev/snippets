@@ -1,6 +1,6 @@
 # Organization for Model Classes
 
-The aim of this file is to show how to order model and controller files and classes to create a pattern of CODELAND. But why is important to set a standart for this kind of thing? **Simple, because when everybody *speak* the same language, everyone undertands each other among themselves. Patterns aren't for make everybody think equal, but to organize things, just that**, keep it in mind.
+The aim of this file is to show how to order model and controller files and classes to create a pattern of CODELAND. But why is important to set a standart for this kind of thing? **Simple, because when everybody *speak* the same language, everyone undertands each other among themselves. Patterns isn't to make everybody thinks equal, but to organize things, just that**, keep it in mind.
 
 So, ok, said all this let's go to the CODE!!
 
