@@ -271,6 +271,12 @@ end
 
 ```
 
+### Create a controller to Static Pages
+
+```rails g controller Pages home```
+
+This will create and setup a route to home page. You can set it ROOT inside the `routes.rb`
+
 ### Configure Passenger to run on production
 To do this, is simple, you just need to create a file called `Procfile` inside the root of your app and put this inside of it:
 
