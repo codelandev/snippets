@@ -76,9 +76,9 @@ group :production do
   gem 'rails_12factor', '~> 0.0.2'
   gem 'passenger', '~> 4.0'
 end
-
-
 ```
+
+So ok, with all the gems on Gemfile, it's time to `bundle`.
 
 ### Configure NProgress-Rails
 Simple as that, just and the following lines on this files:
