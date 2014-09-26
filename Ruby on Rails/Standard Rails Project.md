@@ -18,9 +18,9 @@ Generate application
 ```
 source 'https://rubygems.org'
 # Project's ruby version
-ruby '2.1.2'
+ruby '2.1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Server client
@@ -76,6 +76,7 @@ group :production do
   gem 'rails_12factor', '~> 0.0.2'
   gem 'passenger', '~> 4.0'
 end
+
 
 ```
 
