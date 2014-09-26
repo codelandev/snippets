@@ -50,18 +50,13 @@ gem 'devise'
 # For beautiful and simple forms
 gem 'simple_form'
 
-group :development do
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-  gem 'spring-commands-rspec', '~> 1.0.2'
-end
-
 group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
   gem 'machinist', '~> 2.0'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'awesome_print', '~> 1.2.0', require: false
   gem 'spring'
+  gem 'spring-commands-rspec', '~> 1.0.2'
 end
 
 group :test do
