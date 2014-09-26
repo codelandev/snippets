@@ -147,7 +147,7 @@ production:
 ### Run the basic installers
 
 ```
-bundle && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
+bundle && rake db:create && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
 ```
 
 Also check if ```[initJS](https://github.com/josemarluedke/initjs)``` has injected requires on your application.js
