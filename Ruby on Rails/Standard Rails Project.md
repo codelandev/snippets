@@ -51,6 +51,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'devise'
 # For beautiful and simple forms
 gem 'simple_form'
+# For permissions
+gem 'pundit'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
@@ -149,10 +151,51 @@ production:
 ### Run the basic installers
 
 ```
-bundle && rake db:create && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
+bundle && rake db:create && rails g pundit:install && rails g active_admin:install && rails g simple_form:install && rails g rspec:install && rails g machinist:install && rails generate initjs:install
 ```
 
-Also check if ```[initJS](https://github.com/josemarluedke/initjs)``` has injected requires on your application.js
+Also check if [initJS](https://github.com/josemarluedke/initjs) has injected requires on your application.js
+
+### Include Pundit on application.rb
+
+```ruby
+class ApplicationController < ActionController::Base
+  include Pundit
+  
+  protect_from_forgery with: :exception
+  after_action :verify_authorized
+  after_action :verify_policy_scoped
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  private
+
+  def user_not_authorized
+    flash[:error] = "Você não tem permissão para fazer isso."
+    redirect_to(request.referrer || root_path)
+  end
+end
+```
+
+And in the ApplicationPolicy
+
+```ruby
+...
+def initialize(user, record)
+  raise Pundit::NotAuthorizedError, "must be logged in" unless user
+  @user = user
+  @record = record
+end
+...
+```
+
+So lets configure RSpec and specs.
+
+
+Create a folder inside `spec` called `policies` and include the following line inside `rails_helper.rb`
+```ruby
+require 'pundit/rspec'
+```
 
 ### application.html.slim
 
