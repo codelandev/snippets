@@ -163,8 +163,6 @@ class ApplicationController < ActionController::Base
   include Pundit
   
   protect_from_forgery with: :exception
-  after_action :verify_authorized
-  after_action :verify_policy_scoped
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -175,18 +173,6 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 end
-```
-
-And in the ApplicationPolicy
-
-```ruby
-...
-def initialize(user, record)
-  raise Pundit::NotAuthorizedError, "must be logged in" unless user
-  @user = user
-  @record = record
-end
-...
 ```
 
 So lets configure RSpec and specs.
