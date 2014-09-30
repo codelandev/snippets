@@ -11,7 +11,7 @@ This guide don't help to configure any CSS framework like Bootstrap or Foundatio
 ## Starting
 
 Generate application
-```rails new -d -B -T postgresql```
+```rails new -B -T -d postgresql```
 
 ### Gemfile
 
