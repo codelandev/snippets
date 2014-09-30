@@ -93,7 +93,7 @@ Simple as that, just and the following lines on this files:
 
 ```
 *= require nprogress
-*= require nprogress-turbolinks
+*= require nprogress-bootstrap
 ```
 
 ### database.yml
