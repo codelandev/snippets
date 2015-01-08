@@ -21,7 +21,7 @@ To install (development environment) on your machine, just follow the tips above
 
 * **Install gems**
 
-```bundle```
+```bundle install```
 
 * **Create DB and run migrations**
 
