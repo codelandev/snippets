@@ -7,7 +7,7 @@
 
 ## Installation / Getting Started
 
-To install [Project Name] (for development) on your machine, just follow the tips above:
+To install (development environment) on your machine, just follow the tips above:
 
 * **Clone the project**
 
@@ -21,7 +21,7 @@ To install [Project Name] (for development) on your machine, just follow the tip
 
 * **Install gems**
 
- ```bundle```
+```bundle```
 
 * **Create DB and run migrations**
 
